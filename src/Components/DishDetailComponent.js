@@ -10,6 +10,7 @@ import {
 } from "reactstrap";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import CommentForm from "./CommentForm.js";
 
 function RenderComments({ comments }) {
   const comment_content = comments.map((comment) => {
@@ -69,6 +70,9 @@ const DishDetail = (props) => {
 
           <div className="col-md-5 col-sm-12 col-xs-12 mt-2">
             <RenderComments comments={props.comments} />
+            <div className="mt-3 mb-3">
+              <CommentForm></CommentForm>
+            </div>
           </div>
         </div>
       </div>
