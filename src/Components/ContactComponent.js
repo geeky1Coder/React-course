@@ -250,6 +250,8 @@ class Contact extends Component {
                     id="message"
                     name="message"
                     rows="12"
+                    className="col-12"
+                    // cols="93"
                   ></Control.textarea>
                 </Col>
               </Row>
