@@ -11,7 +11,7 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import { LocalForm, Errors, Control, controls } from "react-redux-form";
+import { LocalForm, Errors, Control, actions } from "react-redux-form";
 
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;

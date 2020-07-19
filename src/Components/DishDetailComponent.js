@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import CommentForm from "./CommentForm.js";
 import { addComment } from "../redux/ActionCreators.js";
 import { Loading } from "./LoadingComponent";
+import { baseUrl } from "../Shared/baseUrl";
 
 function RenderComments({ comments, addComment, dishId }, props) {
   const comment_content = comments.map((comment) => {
@@ -80,7 +81,11 @@ const DishDetail = (props) => {
         <div className="row">
           <div className="col-md-5 col-sm-12 col-xs-12 mt-2">
             <Card>
-              <CardImg top src={props.dish.image} alt={props.dish.name} />
+              <CardImg
+                top
+                src={baseUrl + props.dish.image}
+                alt={props.dish.name}
+              />
               <CardBody>
                 <CardTitle>{props.dish.name}</CardTitle>
                 <CardText>{props.dish.description}</CardText>
