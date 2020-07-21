@@ -29,7 +29,7 @@ class CommentForm extends Component {
     this.setState({ isModalOpen: !this.state.isModalOpen });
   }
   handelSubmit(values) {
-    this.props.addComment(
+    this.props.postComment(
       this.props.dishId,
       values.rating,
       values.author,
