@@ -8,15 +8,49 @@ import {
   Media,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import { LEADERS } from "../Shared/leaders";
-import RenderLeaders from "./RenderLeader.js";
+import { Loading } from "./LoadingComponent";
+import { baseUrl } from "../Shared/baseUrl";
+import { Fade } from "react-animation-components";
 
+function RenderLeaders(leaders) {
+  if (leaders.leaders.isLoading) {
+    return <Loading></Loading>;
+  } else if (leaders.leaders.errmess) {
+    return <h1>{leaders.errmess}</h1>;
+  } else {
+    let leader = leaders.leaders.leaders;
+    return (
+      <stagger in>
+        {leader.map((leader) => {
+          return (
+            <Fade in>
+              <Media className="mb-5">
+                <Media left href="#">
+                  <Media
+                    className="mr-5"
+                    object
+                    src={baseUrl + leader.image}
+                    alt="Generic placeholder image"
+                  />
+                </Media>
+                <Media body>
+                  <Media className="mb-4" heading>
+                    {leader.name}
+                  </Media>
+                  <h6 className="mb-3">{leader.designation}</h6>
+                  {leader.description}
+                </Media>
+              </Media>
+            </Fade>
+          );
+        })}
+      </stagger>
+    );
+  }
+}
 class About extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      leaders: LEADERS,
-    };
   }
 
   render() {
@@ -97,7 +131,7 @@ class About extends Component {
           </div>
           <div className="col-12">
             <Media list>
-              <RenderLeaders leaders={this.state.leaders}></RenderLeaders>
+              <RenderLeaders leaders={this.props.leaders}></RenderLeaders>
             </Media>
           </div>
         </div>

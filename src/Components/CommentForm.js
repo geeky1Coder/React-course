@@ -1,17 +1,6 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Form,
-  FormGroup,
-  Row,
-  Col,
-  Label,
-  Input,
-} from "reactstrap";
-import { LocalForm, Errors, Control, actions } from "react-redux-form";
+import { Button, Modal, ModalHeader, ModalBody, Row, Col } from "reactstrap";
+import { LocalForm, Errors, Control } from "react-redux-form";
 
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
